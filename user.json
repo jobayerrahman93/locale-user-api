@@ -1,0 +1,12 @@
+{
+  "users": [
+    {
+      "Id": 1,
+      "gender": "male",
+      "name": "mishkat",
+      "contact": 437438,
+      "address": "dhaka",
+      "photUrl": "www.photo.com"
+    }
+  ]
+}
