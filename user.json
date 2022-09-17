@@ -1,20 +1,20 @@
 {
   "users": [
     {
-      "Id": 1,
-      "gender": "male",
-      "name": "mishkat",
-      "contact": 437438,
-      "address": "dhaka",
-      "photUrl": "www.photo.com"
-    },
-    {
       "Id": 2,
       "gender": "male",
-      "name": "sahi",
-      "contact": 437438,
+      "name": "nishan",
+      "contact": 323,
+      "address": "bogura",
+      "photUrl": "www.photos.com"
+    },
+    {
+      "Id": 1,
+      "gender": "male",
+      "name": "Hanjala sarker",
+      "contact": 3323,
       "address": "dhaka",
-      "photUrl": "www.photo.com"
+      "photUrl": "www.photos.com"
     }
   ]
 }
