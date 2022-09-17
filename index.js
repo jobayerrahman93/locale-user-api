@@ -6,6 +6,9 @@ app.use(express.json());
 
 app.use('/user',userRouter);
 
+app.get('/',(req,res)=>{
+    res.send('Yay ! server is running')
+})
 
 app.all('*',(req,res)=>{
     console.log("Sorry! no route found");
@@ -16,5 +19,6 @@ app.all('*',(req,res)=>{
 
 
 app.listen(port,()=>{
-    console.log(`server is running on port ${port}`)
+    console.log(`server is running on port ${port}`);
+
 })
