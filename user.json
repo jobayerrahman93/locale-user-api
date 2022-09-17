@@ -7,6 +7,14 @@
       "contact": 437438,
       "address": "dhaka",
       "photUrl": "www.photo.com"
+    },
+    {
+      "Id": 2,
+      "gender": "male",
+      "name": "sahi",
+      "contact": 437438,
+      "address": "dhaka",
+      "photUrl": "www.photo.com"
     }
   ]
 }

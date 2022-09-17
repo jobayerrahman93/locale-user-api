@@ -1,5 +1,8 @@
+const { writeFile } = require('fs');
 const path = require('path');
-const userDb= require('../user.json')
+const userDb= require('../user.json');
+
+
 const getAllUser=(req,res)=>{
     res.sendFile(path.join(__dirname, "../user.json"));
 }
@@ -11,7 +14,21 @@ const getRandomUser=(req,res)=>{
     res.send(randomUser);
 }
 
+
+const saveUser=(req,res)=>{
+    const {users}=userDb;
+    const info = req.body;
+    const newUser = {users:[...users,info]};
+    writeFile(path.join(__dirname,"../user.json") ,JSON.stringify(newUser),(err)=>{
+            res.send(err)
+    })
+    res.send(newUser)
+}
+
+
+
 module.exports={
     getAllUser,
-    getRandomUser
+    getRandomUser,
+    saveUser
 }
