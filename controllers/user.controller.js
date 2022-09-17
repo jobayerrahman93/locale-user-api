@@ -6,11 +6,25 @@ const userDb= require('../user.json');
 const {users}=userDb;
 
 const getAllUser=(req,res)=>{
-    const userLimit =  users.slice(0,3);
-    res.send({users:userLimit})
+  
+    const limit = req.query.limit;
+    if(limit){
+        const userLimit =  users.slice(0,limit);
+        res.send({users:userLimit})
+    }
+    else{
+        res.send({users:users})
     }
 
-    const getRandomUser=(req,res)=>{
+}
+
+const getRandomUser=(req,res)=>{
+  const randomUser= users[Math.floor(Math.random()*users.length)]
+    res.send(randomUser)
+
+}
+
+const getSpecificUser=(req,res)=>{
     const id= parseInt(req.params.id);
 
     const randomUser = users.filter(user=>user.Id===id);
@@ -43,28 +57,12 @@ const saveUser=(req,res)=>{
 const updateUser=(req,res)=>{
 
         const body = req.body;
-        
         const Id = parseInt(req.params.id);
-
-        // first option
-
-//     let index =  users.findIndex(user => user.Id === id);
-//     singleUser = body;
-//     const updatedUser = {users:[
-//     ...users,
-//     users[index].name=body.name,
-//     users[index].address=body.address,
-//     users[index].contact=body.contact,
-//     users[index].gender=body.gender,
-//     users[index].photUrl=body.photUrl,
-//      ]};
-
-        // 2nd option
+   
         const haveUsers = users.find(user=>user.Id===Id);
         if(haveUsers){
 
             const restUser = users.filter(user=>user.Id !== Id);
-
             restUser.push({
             Id:Id,
             gender: body.gender,
@@ -73,7 +71,6 @@ const updateUser=(req,res)=>{
             address: body.address,
             photUrl: body.photUrl});
             const modifyUser = {users:restUser}
-    
     
         writeFileSync(path.join(__dirname,"../user.json") ,JSON.stringify(modifyUser),(err)=>{
             res.send(err)
@@ -84,8 +81,6 @@ const updateUser=(req,res)=>{
         else{
             res.send('Sorry your provide id is wrong')
         }
-
-
 }
 
 
@@ -98,7 +93,6 @@ const deleteUser=(req,res)=>{
         const deletedUser = users.filter(user=>user.Id !== Id);
         const restUser = {users:deletedUser};
     
-        
         writeFileSync(path.join(__dirname,"../user.json") ,JSON.stringify(restUser),(err)=>{
             res.send(err)
         });
@@ -108,9 +102,6 @@ const deleteUser=(req,res)=>{
         res.send('Sorry your provide id is wrong so cannot deleted')
 
     }
-    
-
-
 
 }
 
@@ -120,6 +111,7 @@ module.exports={
     getAllUser,
     getRandomUser,
     saveUser,
+    getSpecificUser,
     updateUser,
     deleteUser
 }
