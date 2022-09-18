@@ -35,8 +35,8 @@ const getSpecificUser=(req,res)=>{
 const saveUser=(req,res)=>{
 
     const info = req.body;
-    if(info.name && info.address && info.contact && info.gender){
-        const haveUsers = users.find(user=>user.Id===info.Id);
+    if(info.name && info.address && info.contact && info.gender && info.Id && info.photUrl){
+        const haveUsers = users.find(user=>user.Id===info.Id); 
     if(haveUsers){
         res.send('Provide unique Id');
     }

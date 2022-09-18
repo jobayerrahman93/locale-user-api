@@ -17,14 +17,6 @@
       "photUrl": "www.photo.com"
     },
     {
-      "Id": 2,
-      "gender": "male",
-      "name": "siyam",
-      "contact": 3323,
-      "address": "dhaka",
-      "photUrl": "www.photos.com"
-    },
-    {
       "Id": 4,
       "gender": "female",
       "name": "Rodela",
@@ -34,11 +26,19 @@
     },
     {
       "Id": 5,
-      "gender": "female",
-      "name": "Ishita",
-      "contact": 437438,
+      "gender": "male",
+      "name": "saymon",
+      "contact": 3323,
       "address": "dhaka",
-      "photUrl": "www.photo.com"
+      "photUrl": "www.photos.com"
+    },
+    {
+      "Id": 2,
+      "gender": "male",
+      "name": "soron",
+      "contact": 3323,
+      "address": "dhaka",
+      "photUrl": "www.photos.com"
     }
   ]
 }
